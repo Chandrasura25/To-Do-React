@@ -40,17 +40,14 @@ const editlist= (index)=>{
   setlistofthings(listofthings);
   setcurrentIndex(index);
 }
-
-const updateTask=(index)=>
+const updateTask=()=>
 {
-  //  let list=JSON.parse(localStorage.getItem('toDolist'));
   let newAllList = [...toDolist];
   let changedDetails = {listofthings};
   newAllList[currentIndex]=changedDetails;
   seteditMode(false);
   localStorage.setItem('toDolist',JSON.stringify(newAllList));
-  // setlistofthings('');
-  window.location.reload()
+  window.location.reload();
 }
 
   return(
@@ -63,16 +60,16 @@ const updateTask=(index)=>
 
            <input type="text" placeholder="To Do" className="form-control mb-3 " onChange={(e)=>setlistofthings(e.target.value)} value={listofthings}/>
            {editMode == false?  
-              <button className="btn btn-info" onClick={addList}>Add
+              <button className="btn btn-success" onClick={addList}>Add
               </button> :   
-              <button className="btn btn-success" onClick={updateTask}>
+              <button className="btn btn-info" onClick={updateTask}>
               Update
               </button>}
           </div>
 
           <div className="col-6 vh-100">
               <h1>List of  Things</h1>
-              <table className="table table-striped table-border">
+              <table className="table table-striped table-bordered">
             <thead>
             <td>S/N</td>
             <td>List</td>
