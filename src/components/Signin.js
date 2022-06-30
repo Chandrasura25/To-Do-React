@@ -31,7 +31,7 @@ export default function Signin() {
                 navigate('/todo')
             }
             else{
-                alert("incorrect username or password");
+                // alert("incorrect username or password");
                 // window.location.reload();
             }
         } 
