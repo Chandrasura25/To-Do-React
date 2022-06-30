@@ -55,7 +55,7 @@ export default function Signin() {
                         <input type="submit"onClick={()=>login({username,password})} value="Login"/>
                     </div>
                 <p>Forgot Your <a href="#">Password</a></p>
-                <p>Need an <a href="#">Account</a></p>
+                <p>Need an <a href="signup">Account</a></p>
             </div>
         </div>
     </section>
