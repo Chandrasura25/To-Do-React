@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif, 'poppins';
+}
+.bod{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #161117;
+}
+.todo-container{
+    width: 40%;
+}
+.small{
+    font-size: 1em;
+}
+.p{
+    font: 3em 'Times New Roman', Times, serif;
+}
+.user{
+    object-fit: contain;
+    /* top: 30px; */
+    position: relative;
+    /* width:10vw;
+    height: 15vh; */
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow:0 25px 45px rgba(0, 0, 0, 0.1);
+    border:1px solid rgba(255, 255, 255, 0.5);
+    border-right:1px solid rgba(255, 255, 255, 0.2);
+    border-bottom:1px solid rgba(255, 255, 255, 0.2);
+}
+.input{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+@media (max-width:991px) {
+    .input{
+      max-width: 400px;
+    }
+}
+.input .form-control{
+    background: transparent;
+    border: none;
+    height: 50px;
+    border-radius: 5px;
+    width: 90%;
+    padding: 0px 20px;
+    font-size: 16px;
+    color: #838284;
+    box-shadow: -6px -6px 10px rgba(255,255,255,.03),6px 6px 10px rgba(10,8,10,.8), inset -6px -6px 10px rgba(255,255,255,.05),inset 6px 6px 10px rgba(10,8,10,.8);
+}
+.input .form-control:focus{
+    outline: none;
+}
+.add .material-icons{
+    background: #ffc800;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #161117;
+    border-radius: 50%;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 30px;
+}
+.update .material-icons{
+    background: #008521;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #161117;
+    border-radius: 50%;
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 30px;
+}
+.todo-list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    color: #716973;
+    background: #221525;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.55);
+}
+.left-cont input{
+    display: none;
+    cursor: pointer;
+}
+.left-cont label{
+    position: relative;
+    cursor: pointer;
+}
+.left-cont label::before{
+    content: '';
+    padding: 11px;
+    display: inline-block;
+    position: relative;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: #412d46;
+    border-radius: 3px;
+}
+.left-cont input:checked + label::before{
+    background: #ffc800;
+}
+.left-cont input:checked + label::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: 4px;
+    left: 8px;
+    width: 5px;
+    height: 12px;
+    border: solid #221525;
+    border-width: 0px 2px 2px 0px;
+    transform: rotate(45deg);
+}
+.remove{
+    color: #ff0047;
+    cursor: pointer;
+    line-height: 1;
+    transform: translateX(48px);
+    transition: .5s;
+}
+.remove.active{
+    transform: translateX(0px);
+    transition: .5s;
+}
