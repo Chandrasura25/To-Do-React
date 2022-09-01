@@ -21,6 +21,7 @@ setalluser(JSON.parse(localStorage.allUser))
 const submit =(newCustomer)=>{
   setalluser(()=>{
     let alllist =[...alluser,{newCustomer,todo:[]}]
+    localStorage.currentUser= JSON.stringify(newCustomer);
     localStorage.allUser= JSON.stringify(alllist);
     setusername('');
     setfirstname('');

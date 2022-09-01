@@ -1,5 +1,5 @@
-import React from 'react'
-import { useState,useEffect} from "react";
+import React,{ useState,useEffect} from 'react'
+import {useNavigate} from "react-router-dom";
 import "../assets/styles/todo.css";
 
 export default function Todo() {
@@ -12,7 +12,7 @@ const [todoIndex, settodoIndex] = useState(0)
 const [editMode, seteditMode] = useState(false)
 const [alluser,setalluser]=useState({});
 let date = new Date().toUTCString();
-
+const navigate=useNavigate()
 useEffect(() => {
   if (localStorage.allUser && localStorage.currentUser){
       settoUser(JSON.parse(localStorage.allUser));
@@ -27,6 +27,7 @@ useEffect(() => {
   else{
         settoUser([]);
         setalluser([]);
+        navigate('/signup')
   }
 }, [])
   const addList =()=>{
