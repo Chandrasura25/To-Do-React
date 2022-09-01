@@ -28,7 +28,7 @@ function Home() {
   }
   const navigate= useNavigate();
   const checkMe=()=>{
-    navigate('/todo');
+    navigate('/signup');
      }
   return (
     <>
@@ -40,13 +40,12 @@ function Home() {
         <div className="container contain">
                <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light nav-tabs initialism nav-pills sticky-top flex-md-nowrap p-0 shadow">
-                    <a href="" id="amet">
+                    <Link to="" id="amet">
                         <p class="navbar-brand">THE ToDo</p>
-                    </a>
+                    </Link>
                     <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#my-navbar">
                     <span class="navbar-toggler-icon"></span>
                     </button>
-                   
                     <div className="collapse navbar-collapse  justify-content-end" id="my-navbar">
                       <ul className="navbar-nav ">
                        <li className="nav-item"><Link to="/" className="mx-3 nav-link active">Home</Link></li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect,useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import "../assets/styles/signin.css";
 import lock from '../assets/images/lock.png';
 import user from '../assets/images/user.png';
@@ -9,33 +9,35 @@ export default function Signin() {
     const [username,setusername]=useState('');
     const [password,setpassword]= useState('');
     const [alluser,setalluser]=useState([]);
-    const [users,setusers]=useState([]);
-    useEffect(() => {
+ useEffect(() => {
   if (localStorage.allUser){
   setalluser(JSON.parse(localStorage.allUser))
-//   setuser(JSON.parse(localStorage.currentUser))
+  console.log(alluser)
   }
   else{
   setalluser([])
-//   setuser([])
   }
-    }, [])
+  },[])
     const login=(customer)=>{
         let newlist = [...alluser];
-        for (let i = 0; i <newlist.length; i++) {
-            if(customer.username==newlist[i].newCustomer.username&&customer.password==newlist[i].newCustomer.password)
-            {
-                console.log(newlist[i].newCustomer.username);
-                let currentP =[...users,{customer}]
-                localStorage.currentUser= JSON.stringify(currentP);
-                navigate('/todo')
-            }
+        console.log(customer.username);
+        let found = newlist.find((val) => {
+        return (val.newCustomer.username === customer.username && val.newCustomer.password === customer.password)
+        })
+    
+        if (found){
+        alert("correct credentials")
+        let currentP ={username:customer.username,password:customer.password}
+              localStorage.currentUser= JSON.stringify(currentP);
+              console.log(currentP);
+             navigate('/todo');
+       }
             else{
-                // alert("incorrect username or password");
-                // window.location.reload();
-            }
-        } 
-    }
+            alert("incorrect username or password");
+            window.location.reload();
+        }
+    
+    } 
   return (
     <>
         <section class="section">
@@ -54,8 +56,8 @@ export default function Signin() {
                     <div class="inputBx">
                         <input type="submit"onClick={()=>login({username,password})} value="Login"/>
                     </div>
-                <p>Forgot Your <a href="#">Password</a></p>
-                <p>Need an <a href="signup">Account</a></p>
+                <p>Forgot Your <Link to="">Password</Link></p>
+                <p>Need an Account? <Link to="/signup">Sign Up</Link></p>
             </div>
         </div>
     </section>

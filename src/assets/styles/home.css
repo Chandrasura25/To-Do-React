@@ -93,7 +93,7 @@ section .wave.wave4{
     bottom: 20;
 }
 body{
-    overflow: hidden;
+    /* overflow: hidden; */
     justify-content: center;
     align-items: center;
     min-height: 100vh;
